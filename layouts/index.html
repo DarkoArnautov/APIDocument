@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
-{{ partial "head_apidoc.html" . }}
+{{ partial "head.html" . }}
 <body class="index" data-languages="{{ with .Site.Params.language_tabs  }}[{{ range $i,$e := . }}{{- if $i -}}, {{ end -}}{{ printf " %q " $e.key }}{{end}}]{{ end }}">
-    {{ partial "sidebar_doc.html" . }}
+    {{ partial "sidebar.html" . }}
     <div class="page-wrapper">
         <div class="dark-box"></div>
         <div class="content">
