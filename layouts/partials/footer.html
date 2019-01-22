@@ -1,0 +1,80 @@
+<footer id="footer">
+    <div class="container">
+
+        <div class="col-md-3 col-sm-3 col-xs-12 footer-logo">
+            <img src="{{ .Site.BaseURL }}/img/footer/footer_logo.svg">
+            <p>{{ .Site.Params.support }}</p>
+        </div>
+        <!-- /.col-md-4 -->
+
+        <div class="col-md-3 col-sm-3 col-xs-4">
+            <h4> {{ i18n "Company"}}</h4>
+            <ul >
+                {{ range .Site.Menus.main }}
+                <li >
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+                <li>
+                    <a href="/login">{{ i18n "login" }}</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-3 col-sm-3 col-xs-4 footer-community">
+          <h4>{{ i18n .Site.Params.community.title }}</h4>
+            <ul >
+                {{ range .Site.Params.communityitem }}
+                <li >
+                    <a href="{{ .url }}"><i class="{{ .icon }}"></i>{{ .name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-3 col-sm-3 col-xs-4">
+          <h4>{{ i18n .Site.Params.other.title }}</h4>
+            <ul >
+                {{ range .Site.Menus.other }}
+                    <li class="dropdown">
+                        {{ if .HasChildren }}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu sub-menu-list">
+                        {{ range .Children }}
+                        <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+                        {{ end }}
+                        </ul>
+                        {{ else }}
+                        <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+                        {{ end  }}
+                    </li>
+                {{ end }}
+                
+            </ul>
+        </div>
+        <!-- /.col-md-4 -->
+
+
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+<!-- *** COPYRIGHT ***
+_________________________________________________________ -->
+
+<div id="copyright" class="copyright-section">
+    <div class="container">
+        <div class="col-md-12">
+            {{ if isset .Site.Params "copyright" }}
+            <p class="text-center">{{ .Site.Params.copyright | safeHTML }}</p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+<!-- /#copyright -->
+
+<!-- *** COPYRIGHT END *** -->

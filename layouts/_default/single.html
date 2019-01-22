@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+
+    <div id="all">
+        {{ if isset .Params "background" }}
+            {{ if isset .Params "gradient" }}
+            <div id="heading-breadcrumbs" style="background:linear-gradient({{ .Params.gradient | safeCSS }}), url({{ .Site.BaseURL }}{{.Params.background}}) center center no-repeat; background-size: cover;">
+            {{ else }}
+            <div id="heading-breadcrumbs" style="background:linear-gradient(to top, rgba(132, 234, 209, 0.9), rgba(66, 217, 219, 0.9), rgba(0, 197, 230, 0.9), rgba(0, 175, 237, 0.9), rgba(0, 149, 233, 0.9)), url({{.Params.background}}) center center no-repeat; background-size: cover;">
+            {{ end }}
+                {{ partial "nav.html" . }}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>{{ .Title }}</h1>
+                            {{ if isset .Params "subtitle" }}
+                                <h2>{{ .Params.subtitle }}</h2>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        {{ end }}
+        <div id="content">
+            {{ if isset .Params "id" }}
+
+              {{ partial .Params.id . }}
+
+            {{ else }}
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <div>
+                          {{ .Content | safeHTML }}
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            {{ end }}
+        </div>
+        <!-- /#content -->
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

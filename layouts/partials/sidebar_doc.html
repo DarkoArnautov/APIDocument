@@ -1,0 +1,28 @@
+<div class="doc-nav">
+    <div class="navbar-affixed-top" data-spy="affix">
+        {{ partial "nav.html" . }}
+        <a href="#" id="nav-button">
+            <span>
+                NAV
+                <img src='{{ relURL "slate/images/navbar.png" }}'/>
+            </span>
+        </a>
+    </div>
+</div>
+<div class="tocify-wrapper">
+    {{ with .Site.Params.language_tabs }}
+    <div class="lang-selector">
+        {{ range . }}
+        <a href="#" data-language-name="{{ .key }}">{{ .name  }}</a>
+        {{ end }}
+    </div>
+    {{ end }} 
+    {{ if .Site.Params.search }}
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder='{{ i18n "searchTitle" }}'>
+    </div>
+    <ul class="search-results"></ul>
+    {{ end }}
+    <div id="toc">
+    </div>
+</div>

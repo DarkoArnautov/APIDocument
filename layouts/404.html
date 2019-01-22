@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  {{ partial "head.html" . }}
+
+  <body>
+    <div id="all">
+       
+        <div id="content" style="background:linear-gradient({{ .Site.Params.gradient | safeCSS }}), url({{ .Site.BaseURL }}{{.Site.Params.background}}) center center no-repeat; background-size: cover;">
+            <div class="container">
+                <p class="text-center">
+                    <a href="{{ .Site.BaseURL }}">
+                        <img src="{{ .Site.BaseURL }}{{ .Site.Params.logo }}" alt="{{ .Title }} logo">
+                    </a>
+                </p>
+                <div class="col-sm-8 col-sm-offset-2" id="error-page">
+                    <div class="row">
+                        <h3>Sorry - this page is not here</h3>
+                        <h4 class="text-muted">Error 404 - Page not found</h4>
+
+                        <p class="buttons"><a href="{{ .Site.BaseURL }}/" class="btn btn-template-main"><i class="fa fa-home"></i> Go to Homepage</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-sm-6 -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+  </body>
+</html>
